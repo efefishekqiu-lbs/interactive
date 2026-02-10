@@ -1,5 +1,48 @@
-let isHeaderMinimized = false;
+let games = {
+    ["streetnheists"]: {
+        label: "Streets n Heists",
+        thumbnail: "/assets/gamepics/snh1.png",
+        video: "/assets/videos/streetsnheistgameplay.mp4",
+        supportedPlatforms: {
+            ["pc"]: false,
+            ["ps4"]: false,
+            ["xbox"]: true,
+        },
+    },
+    ["parryvsgod"]: {
+        label: "Parry Vs God",
+        thumbnail: "/assets/gamepics/pvg1.png",
+        video: "/assets/videos/streetsnheistgamesplay.mp4",
+        supportedPlatforms: {
+            ["pc"]: true,
+            ["ps4"]: true,
+            ["xbox"]: true,
+        },
+    },
+}
 
+let currentGame = "streetnheists"
+function selectGame(id) {
+    if (games[id]) {
+        let data = games[id];
+        currentGame = id;
+        $(".selected-game-platforms>img").hide()
+        $.each(data.supportedPlatforms, function(k, v) {
+            if (v == true) {
+                $(`.selected-game-platforms>img[data-type="${k}"]`).show()
+            }
+        })
+        $(".selected-game-name, .game-label").html(data.label)
+        $(".video").attr("src", data.video)
+        $(".selected-game-bg, .selected-game-profile-thumbnail").attr("src", data.thumbnail)
+        $(".game-element").removeClass("game-selected")
+        $(`.game-element[data-id="${id}"]`).addClass("game-selected")
+        $(".slide-track>img").hide()
+        $(`.slide-track>img[data-game="${id}"]`).show()
+    }
+}
+
+let isHeaderMinimized = false;
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
 
@@ -29,6 +72,7 @@ window.addEventListener("scroll", () => {
                 "width": "100%",
                 "height": "90px",
                 "border-radius": "0",
+                "border": "none",
                 "border-bottom": "1px solid hsla(0, 0%, 100%, .2)",
                 "backdrop-filter": "none",
                 "transform": "none",
@@ -39,8 +83,7 @@ window.addEventListener("scroll", () => {
 });
 
 $(document).on("click", ".game-element", function () {
-   $(".game-element").removeClass("game-selected")
-   $(this).addClass("game-selected")
+   selectGame($(this).attr("data-id"))
 })
 
 function logoReload() {
@@ -49,53 +92,36 @@ function logoReload() {
     let both = $("#logo-both");
     let logo = $("#logo-real");
 
-    // ===== CIRCLE =====
     circle.css({ opacity: 1, transform: "scale(1.5)" });
-
     setTimeout(() => {
         circle.css({ transition: "all 0.35s ease", transform: "scale(0.7)" });
     }, 100);
-
     setTimeout(() => {
         circle.css({ transform: "scale(1.1)" });
     }, 450);
-
     setTimeout(() => {
         circle.css({ transform: "scale(0)", opacity: 0 });
     }, 750);
-
-
-    // ===== X =====
     setTimeout(() => {
         x.css({ opacity: 1, transform: "scale(1.2)" });
     }, 850);
-
     setTimeout(() => {
         x.css({ transition: "all 0.35s ease", transform: "scale(0.7)" });
     }, 1000);
-
     setTimeout(() => {
         x.css({ transform: "scale(1.06) rotate(180deg)" });
     }, 1300);
-
-
-    // ===== BOTH =====
     setTimeout(() => {
-
         x.css({ opacity: 0, transform: "scale(0)" });
-
         both.css({
             opacity: 1,
             transform: "scale(0.4)",
             transition: "all 0.35s ease"
         });
-
     }, 1650);
-
     setTimeout(() => {
         both.css({ transform: "scale(1.1)" });
     }, 1750);
-
     setTimeout(() => {
         both.css({ transform: "scale(0.95)" });
     }, 2050);
@@ -112,4 +138,16 @@ function logoReload() {
 
 $(document).ready(function () {
     logoReload()
+    $('.video')[0].play(); 
+    selectGame("streetnheists")
+});
+
+
+$(document).on("click", ".faq-wrapper-item", function () {
+    if ($(this).hasClass("faq-wrapper-item-active")) {
+        $(this).removeClass("faq-wrapper-item-active");
+    } else {
+        $(".faq-wrapper-item").removeClass("faq-wrapper-item-active");
+        $(this).addClass("faq-wrapper-item-active");
+    }
 });
