@@ -12,7 +12,7 @@ let games = {
     ["parryvsgod"]: {
         label: "Parry Vs God",
         thumbnail: "/assets/gamepics/pvg1.png",
-        video: "/assets/videos/streetsnheistgamesplay.mp4",
+        video: "/assets/videos/parryvsgodgameplay.mp4",
         supportedPlatforms: {
             ["pc"]: true,
             ["ps4"]: true,
