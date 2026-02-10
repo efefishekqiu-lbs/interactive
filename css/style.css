@@ -55,12 +55,50 @@ header {
    z-index: 999;
 }
 
-.header-logo {
+.logo-showcase {
    position: absolute;
    top: 50%;
-   left: 1.4vw;
+   left: 2.5vw;
    transform: translate(0, -50%);
-   width: 130px;
+   width: 5vw;
+   height: 5vw;
+}
+
+.logo-showcase img {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   opacity: 0;
+   transform: scale(0.7);
+}
+
+.logo-active {
+   opacity: 1 !important;
+   transform: scale(1);
+   transition: all 0.5s ease;
+}
+
+.header-login {
+   position: absolute;
+   top: 50%;
+   right: 2.5vw;
+   transform: translate(0, -50%);
+   font-size: 15px;
+   font-weight: 600;
+   background-color: #fff;
+   border: 1px solid #fff;
+   color: #000;
+   padding: 12px 40px;
+   border-radius: 3px;
+   cursor: pointer;
+   transition: all ease-in 180ms;
+}
+
+.header-login:hover {
+   background-color: #000;
+   color: #fff;
 }
 
 .navbar-buttons {
@@ -78,6 +116,11 @@ header {
 .navbar-buttons>a {
    color: #fff;
    text-decoration: none;
+   transition: all ease-in 170ms;
+}
+
+.navbar-buttons>a:hover {
+   color: #ffffffb9;
 }
 
 games {
@@ -104,6 +147,16 @@ game {
    color: #fff;
 }
 
+game:nth-child(2) {
+   border-top-left-radius: 0;
+   border-bottom-left-radius: 0;
+}
+
+game:nth-child(2):hover {
+   border: 1px solid #8c8c8c;
+   border-left: none;
+}
+
 game h1 {
    position: absolute;
    top: 50%;
@@ -114,7 +167,8 @@ game h1 {
 }
 
 .game-selected {
-   background-color: #232323;
+   background-color: #ffffff;
+   color: #000;
 }
 
 games > game:first-child.game-selected {
@@ -389,20 +443,21 @@ support>button {
    font-weight: 600;
    z-index: 99;
 }
+
 footer {
    position: relative;
    top: 0;
    left: 0;
    width: 100%;
-   height: 25vh;
-   border-top: 3px solid transparent;
-   background: 
-       linear-gradient(to right, 
-           rgba(85, 84, 84, 0) 0%,     
-           rgba(85, 84, 84, 0.726) 50%,    
-           rgba(85, 84, 84, 0) 100%    
-       );
-   background-repeat: no-repeat;
-   background-position: top;
-   background-size: 100% 1px; 
+   height: 38vh;
+   border-top: 1px solid #333333;
+   /* background: #000000; */
+}
+
+footer>h1 {
+   position: absolute;
+   top: 2vh;
+   left: 2vw;
+   color: #fff;
+   font-size: 13px;
 }

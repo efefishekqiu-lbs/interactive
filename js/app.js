@@ -44,3 +44,74 @@ $(document).on("click", ".game-element", function () {
    $(".game-element").removeClass("game-selected")
    $(this).addClass("game-selected")
 })
+
+function logoReload() {
+    let circle = $("#logo-circle");
+    let x = $("#logo-x");
+    let both = $("#logo-both");
+    let logo = $("#logo-real");
+
+    // ===== CIRCLE =====
+    circle.css({ opacity: 1, transform: "scale(1.5)" });
+
+    setTimeout(() => {
+        circle.css({ transition: "all 0.35s ease", transform: "scale(0.7)" });
+    }, 100);
+
+    setTimeout(() => {
+        circle.css({ transform: "scale(1.1)" });
+    }, 450);
+
+    setTimeout(() => {
+        circle.css({ transform: "scale(0)", opacity: 0 });
+    }, 750);
+
+
+    // ===== X =====
+    setTimeout(() => {
+        x.css({ opacity: 1, transform: "scale(1.2)" });
+    }, 850);
+
+    setTimeout(() => {
+        x.css({ transition: "all 0.35s ease", transform: "scale(0.7)" });
+    }, 1000);
+
+    setTimeout(() => {
+        x.css({ transform: "scale(1.06) rotate(180deg)" });
+    }, 1300);
+
+
+    // ===== BOTH =====
+    setTimeout(() => {
+
+        x.css({ opacity: 0, transform: "scale(0)" });
+
+        both.css({
+            opacity: 1,
+            transform: "scale(0.4)",
+            transition: "all 0.35s ease"
+        });
+
+    }, 1650);
+
+    setTimeout(() => {
+        both.css({ transform: "scale(1.1)" });
+    }, 1750);
+
+    setTimeout(() => {
+        both.css({ transform: "scale(0.95)" });
+    }, 2050);
+    setTimeout(() => {
+        both.css({ opacity: "0" });
+        setTimeout(() => {
+            logo.css({
+                opacity: 1,
+                transform: "scale(1.01)" 
+            });
+        }, 100);
+    }, 2300);
+}
+
+$(document).ready(function () {
+    logoReload()
+});
