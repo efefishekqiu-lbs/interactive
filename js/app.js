@@ -12,9 +12,8 @@ window.addEventListener("scroll", () => {
                 "left": "50%",
                 "width": "85%",
                 "border-radius": "15px",
-                "background-color": "#1413136b",
                 "backdrop-filter": "blur(5px)",
-                "border": "1px solid #555454",
+                "border": "1px solid hsla(0, 0%, 100%, .2)",
                 "height": "50px",
                 "transform": "translateX(-50%)",
                 "box-shadow": "rgba(78, 78, 78, 0.173) 0px 30px 60px -12px, rgba(0, 0, 0, 0.375) 0px 18px 36px -18px"
@@ -30,8 +29,7 @@ window.addEventListener("scroll", () => {
                 "width": "100%",
                 "height": "90px",
                 "border-radius": "0",
-                "border": "none",
-                "background-color": "#141313",
+                "border-bottom": "1px solid hsla(0, 0%, 100%, .2)",
                 "backdrop-filter": "none",
                 "transform": "none",
                 "box-shadow": "rgba(78, 78, 78, 0.173) 0px 30px 60px -12px, rgba(0, 0, 0, 0.375) 0px 18px 36px -18px"
