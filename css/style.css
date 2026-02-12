@@ -154,10 +154,17 @@ game:nth-child(2):hover {
    border-left: none;
 }
 
+game img {
+   position: absolute;
+   top: 50%;
+   left: 0.6vw;
+   width: 2vw;
+   transform: translate(0, -50%);
+}
 game h1 {
    position: absolute;
    top: 50%;
-   left: 1vw;
+   left: 3vw;
    font-size: 15px;
    font-weight: 500;
    transform: translate(0, -50%);
@@ -175,6 +182,11 @@ game h1 {
 .game-selected {
    background-color: #ffffff;
    color: #000;
+}
+
+.game-selected>img {
+   filter: drop-shadow(0 0 10px rgb(0, 0, 0));
+
 }
 
 games > game:first-child.game-selected {
