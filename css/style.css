@@ -15,7 +15,7 @@
 }
 
 .opacityLow:hover {
-  opacity: 60%;
+  opacity: 70%;
 }
 
 *::-webkit-scrollbar-track {
@@ -691,4 +691,230 @@ footer>h3 {
    background-color: #fff;
    border: 1px solid #fff;
    color: #000;
+}
+
+/* Gamepage */
+
+.gamepage-wrapper {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh;
+   overflow-y: auto;
+   background-color: #020202;
+   z-index: 99999;
+}
+
+.gamepage-wrapper>h1 {
+   position: absolute;
+   top: 18.4vh;
+   left: 7.5vw;
+   width: max-content;
+   font-size: 25px;
+   color: #fff;
+}
+
+.gamepage-showcaseProfile {
+   position: absolute;
+   top: 25vh;
+   left: 7.6vw;
+   width: 50vw;
+   height: 70vh;
+}
+
+.gamepage-contentScreen {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 82%;
+}
+
+.gamepage-contentScreen>img {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+}
+
+.gamepage-contentScreen>video {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   margin: 0 !important; 
+   padding: 0 !important;
+}
+
+.gamepage-footerWrapper {
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   height: 15%;
+   width: 100%;
+   transform: translate(-50%);
+}
+
+.gamepage-footerWrapper-leftButton {
+   position: absolute;
+   top: 50%;
+   left: 0vw;
+   transform: translate(0, -50%);
+   background-color: #343437;
+   width: 2.1vw;
+   aspect-ratio: 1/1;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 22px;
+   color: #fff;
+   cursor: pointer;
+}
+
+.gamepage-footerWrapper-rightButton {
+   position: absolute;
+   top: 50%;
+   right: 0vw;
+   transform: translate(0, -50%);
+   background-color: #343437;
+   width: 2.1vw;
+   aspect-ratio: 1/1;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 22px;
+   color: #fff;
+   cursor: pointer;
+}
+
+.gamepage-footerWrapper-leftButton:hover,
+.gamepage-footerWrapper-rightButton:hover {
+   background-color: #636366;
+   opacity: 90%;
+}
+
+.gamepage-footerWrapper-contents {
+   position: absolute;
+   top: 0;
+   left: 50%;
+   transform: translate(-50%);
+   width: 89%;
+   height: 100%;
+   overflow-x: auto;
+   overflow-y: hidden;
+   scrollbar-width: none;        
+   -ms-overflow-style: none;
+   display: flex;              
+   flex-direction: row;        
+}
+
+.gamepage-footerWrapper-contents-box {
+   position: relative;
+   flex: 0 0 9vw;             
+   height: 100%;
+   margin-right: 8px;
+   display: block;
+   opacity: 70%;
+   cursor: pointer;
+   transform: scale(0.95);
+   border-radius: 3px;
+}
+
+.gamepage-footerWrapper-contents-box:hover {
+   transform: scale(0.9);
+}
+
+.gamepage-footerWrapper-contents-box>img {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   border-radius: 3px;
+}
+
+.gamepage-footerWrapper-contents-box > video {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   margin: 0 !important; 
+   padding: 0 !important;
+   border-radius: 3px;
+}
+
+.gamepage-footerWrapper-contents-box>svg {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: #fff;
+   text-shadow: 1px 1px 1px black;
+   font-size: 25px;
+}
+
+.gamepage-footerWrapper-contents-box-selected {
+   border: 1px solid #fff;
+   opacity: 100%;
+   transform: scale(1.0);
+}
+.gamepage-rightHandSide {
+   position: absolute;
+   top: 25vh;
+   right: 0;
+   width: 40%;
+   height: 100%;
+}
+
+.gamepage-rightHandSide-logo {
+   position: absolute;
+   top: 0vh;
+   left: 50%;
+   transform: translate(-50%);
+   width: 15vw;
+}
+
+.gamepage-dependsWrapper {
+   position: relative;
+   top: 35vh;
+   left: 0;
+   width: 95%;
+   height: max-content;
+}
+
+.gamepage-dependsWrapper-box {
+   position: relative;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 5.5vh;
+   border-bottom: 1px solid #FFFFFFA6;
+}
+
+.gamepage-dependsWrapper-box>h1 {
+   position: absolute;
+   top: 50%;
+   left: 0.2vw;
+   transform: translate(0, -50%);
+   color: #FFFFFFA6;
+   font-weight: 600;
+   font-size: 13px;
+}
+
+.gamepage-dependsWrapper-box>h2 {
+   position: absolute;
+   top: 50%;
+   right: 0.2vw;
+   transform: translate(0, -50%);
+   color: #fff;
+   font-weight: 600;
+   font-size: 13px;
 }
