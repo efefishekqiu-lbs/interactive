@@ -700,24 +700,151 @@ footer>h3 {
    top: 0;
    left: 0;
    width: 100%;
-   height: 100vh;
+   height: 110vh;
    overflow-y: auto;
    background-color: #020202;
    z-index: 99999;
+   display: none;
+}
+
+.gamepage-faq {
+   position: absolute;
+   top: 22vh;
+   left: 50%;
+   transform: translate(-50%);
+   width: 85%;
+   height: 90vh;
+   font-size: 15px;
+   color: #fff;
+   display: none;
+}
+
+.gamepage-faq>p>strong {
+   font-size: 20px;
+   font-weight: 600;
+   color: #fff;
+}
+
+.gamepage-faq>p {
+   font-size: 15px;
+   color: #d6d6d6ce;
+}
+
+.gamepage-tags {
+   position: absolute;
+   top: 97vh;
+   left: 8vw;
+   width: 50%;
+   height: 7.5vh;
+}
+
+.gamepage-tags>h1 {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: max-content;
+   font-size: 14px;
+   font-weight: 500;
+   color: #fff;
+}
+
+.gamepage-tags-wrapper {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 4.2vh;
+}
+
+.gamepage-tags-wrapper-tag {
+   position: relative;
+   float: left;
+   margin-right: 10px;
+   height: 100%;
+   width: max-content;
+   padding: 0 10px;
+   color: #fff;
+   background-color: #343437;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 5px;
+   font-size: 14px;
+   font-weight: 600;
+   /* font-family: "Poppins"; */
+
+}
+
+.gamepage-tags-wrapper:last-child {
+   margin-right: 0;
+}
+
+.gamepage-description {
+   position: absolute;
+   top: 107vh;
+   left: 8vw;
+   width: 50vw;
+   color: #b1b1b1;
+   font-size: 15px;
+}
+
+.gamepage-wrapper-close {
+   position: absolute;
+   top: 3vh;
+   left: 7.4vw;
+   font-size: 15.5px;
+   width: max-content;
+   height: max-content;
+   padding: 6px 14px;
+   color: #fff;
+   color: #000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 15px;
 }
 
 .gamepage-wrapper>h1 {
    position: absolute;
-   top: 18.4vh;
+   top: 9vh;
    left: 7.5vw;
    width: max-content;
-   font-size: 25px;
+   font-size: 28px;
    color: #fff;
 }
 
+.gamepage-navbar {
+   position: absolute;
+   top: 15.2vh;
+   left: 7.5vw;
+   width: 20vw;
+   height: 3vh;
+}
+
+.gamepage-navbar-button {
+   position: relative;
+   float: left;
+   width: max-content;
+   font-size: 15px;
+   font-weight: 500;
+   color: #ccc;
+   margin-right: 1vw;
+   padding-bottom: 1vh;
+   transition: all ease-in 100ms;
+   cursor: pointer;
+}
+
+.gamepage-navbar-button-selected {
+   border-bottom: 3px solid rgb(38, 187, 255);
+   color: #fff;
+}
+
+.gamepage-navbar-button:hover {
+   color: #fff;
+}
 .gamepage-showcaseProfile {
    position: absolute;
-   top: 25vh;
+   top: 21vh;
    left: 7.6vw;
    width: 50vw;
    height: 70vh;
@@ -866,9 +993,11 @@ footer>h3 {
    opacity: 100%;
    transform: scale(1.0);
 }
+
 .gamepage-rightHandSide {
    position: absolute;
-   top: 25vh;
+   top: 21vh;
+
    right: 0;
    width: 40%;
    height: 100%;
@@ -884,7 +1013,7 @@ footer>h3 {
 
 .gamepage-dependsWrapper {
    position: relative;
-   top: 35vh;
+   top: 37vh;
    left: 0;
    width: 95%;
    height: max-content;
@@ -917,4 +1046,35 @@ footer>h3 {
    color: #fff;
    font-weight: 600;
    font-size: 13px;
+}
+
+.gamepage-dependsWrapper-box:last-child {
+   margin-top: 2vh;
+   border: none;
+}
+
+.gamepage-dependsWrapper-box:nth-last-child(2) {
+   margin-top: 2vh;
+   border: none;
+}
+
+.gamepage-dependsWrapper-box>button {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 6vh;
+   font-weight: 600;
+   border-radius: 5px;
+   background-color: #26BBFF;
+   color: #000;
+   display: flex;
+   align-items: center;    
+   justify-content: center;
+   gap: 8px;               
+   border: none;
+}
+
+.gamepage-dependsWrapper-box>button>svg {
+   font-size: 20px;
 }
