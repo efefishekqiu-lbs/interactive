@@ -248,8 +248,12 @@ $(document).ready(function () {
     logoReload()
     $('.video')[0].play(); 
     selectGame("streetnheists")
-    openGamePage("streetnheists")
+    // openGamePage("streetnheists")
 });
+
+setTimeout(() => {
+    selectGame("streetnheists")
+}, 200);
 
 
 $(document).on("click", ".faq-wrapper-item", function () {
