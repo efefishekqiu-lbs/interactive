@@ -248,7 +248,7 @@ $(document).ready(function () {
     logoReload()
     $('.video')[0].play(); 
     selectGame("streetnheists")
-    // openGamePage("streetnheists")
+    openGamePage("streetnheists")
 });
 
 
@@ -267,7 +267,7 @@ function openGamePage(id) {
         currentOpenedGame = id;
         $("body").css("overflow-y", "hidden")
         selectGamepageNavbar("oversikt")
-        $("header").hide()
+        $("header, games").hide()
         let data = games[id];
         $(".gamepage-contentScreen>video").hide()
         $(".gamepage-rightHandSide-logo").attr("src", data.logo)
@@ -349,7 +349,7 @@ $(document).on("click", ".gamepage-wrapper-close", function () {
     currentOpenedGame = "null";
     $("body").css("overflow-y", "auto")
     selectGamepageNavbar("oversikt")
-    $("header").show()
+    $("header, games").show()
     $(".gamepage-wrapper").hide()
 })
 
