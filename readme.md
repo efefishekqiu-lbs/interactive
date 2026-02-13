@@ -36,14 +36,12 @@ Valde ren frontend eftersom webbplatsen är statisk.
 
 ---
 
+## Applikationen finns även tillgänglig online:
+**[\[Länk till Interactive Online\]](https://interactive-rho-henna.vercel.app/)**
+
 ## Starta projektet  
 
 ```bash
 1. Ladda när projektet.
 2. Un-zip filen.
 3. Öppna index.html
-
----
-
-### Applikationen finns även tillgänglig online:
-**[\[Länk till Interactive Online\]](https://interactive-rho-henna.vercel.app/)**
