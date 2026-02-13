@@ -129,6 +129,7 @@ let games = {
     },
 }
 
+// Det är funktionen som ändrar spelet på första websidan stänger/ändrar gamla bilder och öppnar nya
 let currentGame = "streetnheists"
 function selectGame(id) {
     if (games[id]) {
@@ -150,10 +151,10 @@ function selectGame(id) {
     }
 }
 
+// En scroll listener som kontrolerar om du har scrollat så stylen på header ändras
 let isHeaderMinimized = false;
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
-
     if (scrollY > 50) {
         if (!isHeaderMinimized) {
             isHeaderMinimized = true;
@@ -190,10 +191,12 @@ window.addEventListener("scroll", () => {
     }
 });
 
+// Listener för ändra spelet
 $(document).on("click", ".game-element", function () {
    selectGame($(this).attr("data-id"))
 })
 
+// Det är en funktion som ändar logo och det blir snygg animation den körs bara i början när sidan refreshar
 function logoReload() {
     let circle = $("#logo-circle");
     let x = $("#logo-x");
@@ -244,11 +247,11 @@ function logoReload() {
     }, 2300);
 }
 
+// Default changes i början
 $(document).ready(function () {
     logoReload()
     $('.video')[0].play(); 
     selectGame("streetnheists")
-    // openGamePage("streetnheists")
 });
 
 setTimeout(() => {
@@ -265,6 +268,7 @@ $(document).on("click", ".faq-wrapper-item", function () {
     }
 });
 
+// En funktion som fungerar när man klickar på spelet den stänger default elementer som header och öppnar en ny wrapper som har störst z-index så den ser ut längst uppe
 let currentOpenedGame = "null";
 function openGamePage(id) {
     if (games[id]) {
@@ -324,6 +328,7 @@ function openGamePage(id) {
     }
 }
 
+// en funktion som gör att vi kan switcha mellan "Översikt" och "Vanliga frågor"
 function selectGamepageNavbar(type) {
     $(".gamepage-navbar-button").removeClass("gamepage-navbar-button-selected")
     $(`.gamepage-navbar-button[data-type="${type}"]`).addClass("gamepage-navbar-button-selected")
@@ -357,13 +362,11 @@ $(document).on("click", ".gamepage-wrapper-close", function () {
     $(".gamepage-wrapper").hide()
 })
 
+// Det är funktionen som loadar contents för spelet i gamepagen det finns listener för videon tillexempel när videon pausas så ikonen ändras som pausad
 function selectGamePageContent(id) {
-
     if (games[currentOpenedGame]) {
-
-        const $video = $('.gamepage-contentScreen>video');
-        const videoEl = $video[0];
-
+        const video = $('.gamepage-contentScreen>video');
+        const videoEl = video[0];
         $(".gamepage-footerWrapper-contents-box")
             .removeClass("gamepage-footerWrapper-contents-box-selected");
 
@@ -371,59 +374,42 @@ function selectGamePageContent(id) {
         $(".startVideoShowcase").show();
 
         $.each(games[currentOpenedGame].contents, function (k, v) {
-
             if (v == id) {
-
                 if (isUrlVideo(k) == true) {
-
-                    // Eski listenerları temizle
-                    $video.off("play pause ended");
-
+                    video.off("play pause ended");
                     $(".gamepage-contentScreen>img").hide();
-                    $video.attr("src", k).show();
-
-                    // 🎯 PLAY olduğunda icon değiştir
-                    $video.on("play", function () {
+                    video.attr("src", k).show();
+                    video.on("play", function () {
                         $(`.gamepage-footerWrapper-contents-box[data-id="${id}"]`)
                             .find(".startVideoShowcase").hide()
                             .end()
                             .find(".pauseVideoShowcase").show();
                     });
-
-                    // 🎯 PAUSE veya ENDED olduğunda resetle
-                    $video.on("pause ended", function () {
+                    video.on("pause ended", function () {
                         $(".pauseVideoShowcase").hide();
                         $(".startVideoShowcase").show();
                     });
-
                     videoEl.play();
-
                 } else {
-
                     if (videoEl) {
                         videoEl.pause();
                         videoEl.currentTime = 0;
                     }
-
-                    $video.hide();
+                    video.hide();
                     $(".gamepage-contentScreen>img")
                         .attr("src", k)
                         .show();
                 }
-
                 $(`.gamepage-footerWrapper-contents-box[data-id="${id}"]`)
                     .addClass("gamepage-footerWrapper-contents-box-selected");
-
                 return false;
             }
 
         });
-
     }
-
 }
 
-
+// Det är en funktion som gör att man kan scrolla x axisen med cubic bezier animation
 function smoothHorizontalScroll(element, distance) {
     const start = element.scrollLeft;
     const startTime = performance.now();
@@ -458,6 +444,7 @@ $(document).on("click", ".gamepage-footerWrapper-rightButton", function () {
     smoothHorizontalScroll(container, 350);
 });
 
+// Det är en funktion som kontrolerar om stringen innehåller video extension
 function isUrlVideo(url) {
     const videoExtensions = [
         "mp4", "webm", "ogg", "mov", "mkv", "avi", "flv", "avif"
