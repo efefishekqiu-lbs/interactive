@@ -458,3 +458,35 @@ function isUrlVideo(url) {
         return false;
     }
 }
+
+// En funktion som scrollar när till target med animation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target) {
+      e.preventDefault();
+      const headerOffset = 80; 
+      const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      smoothScrollTo(targetY, 500); 
+    }
+  });
+});
+
+function smoothScrollTo(targetY, duration = 600) {
+  const startY = window.pageYOffset;
+  const distance = targetY - startY;
+  let startTime = null;
+  function step(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      window.scrollTo(0, startY + distance * easeInOutQuad(progress));
+      if (timeElapsed < duration) {
+        requestAnimationFrame(step);
+      }
+  }
+  function easeInOutQuad(t) {
+    return t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t;
+  }
+  requestAnimationFrame(step);
+}
